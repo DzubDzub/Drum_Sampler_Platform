@@ -854,40 +854,6 @@ function DrumTool({ bpm, isPlaying }: { bpm: number; isPlaying: boolean }) {
                       InstrumentTypeEnum.Kick.Regular,
                     )}
                   </div>
-
-                  {/*<div className="flex flex-col items-center mb-4">*/}
-                  {/*  <button*/}
-                  {/*    className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded mb-2"*/}
-                  {/*    onClick={() => {*/}
-                  {/*      if (bars > 1) {*/}
-                  {/*        setbars(bars - 1);*/}
-                  {/*      } else if (bars === 1) {*/}
-                  {/*      }*/}
-                  {/*      console.log(*/}
-                  {/*        "minus bar clicked\nbars:",*/}
-                  {/*        bars,*/}
-                  {/*        "\nnumsteps: ",*/}
-                  {/*        NUM_STEPS,*/}
-                  {/*      );*/}
-                  {/*    }}*/}
-                  {/*  >*/}
-                  {/*    ×*/}
-                  {/*  </button>*/}
-                  {/*  <button*/}
-                  {/*    className="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-3 rounded"*/}
-                  {/*    onClick={() => {*/}
-                  {/*      setbars(bars + 1);*/}
-                  {/*      console.log(*/}
-                  {/*        "plus bar clicked\nbars:",*/}
-                  {/*        bars,*/}
-                  {/*        "\nnumsteps: ",*/}
-                  {/*        NUM_STEPS,*/}
-                  {/*      );*/}
-                  {/*    }}*/}
-                  {/*  >*/}
-                  {/*    +*/}
-                  {/*  </button>*/}
-                  {/*</div>*/}
                 </div>
               </div>
             </div>
