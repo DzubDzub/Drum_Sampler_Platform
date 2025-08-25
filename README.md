@@ -1,8 +1,7 @@
-# Project 4 - Software Engineering
-## Drum Machine for Strefa Perkusistów
+## Drum Sampler educational platform for Strefa Perkusistów
 
 **Authors:**  
-Robert Jurczak, Markus Stevens, Julian Schatten
+Robert Jurczak
 
 ---
 
