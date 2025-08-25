@@ -7,8 +7,8 @@ import React, {
   useState,
 } from "react";
 import * as Tone from "tone";
-import ABCJS from "abcjs";
-import * as NotationAPI from "./NotationAPI";
+//import ABCJS from "abcjs";
+//import * as NotationAPI from "./NotationAPI";
 import * as CreateURL from "./CreateURL";
 import { InstrumentTypeEnum } from "./InstrumentTypeEnum";
 import StepButton from "./StepButton";
@@ -108,13 +108,13 @@ function DrumTool({ bpm, isPlaying }: { bpm: number; isPlaying: boolean }) {
     ${rests}
   `);
 
-  useEffect(() => {
+  /*useEffect(() => {
     //when number of steps changes, the notation string/stuff should be updated
     setNotationString(
       NotationAPI.resize(NUM_STEPS, beatsPerMeasure, selectedSubdivision.value),
     );
   }, [NUM_STEPS]);
-
+*/
   const { selectedInstrumentMode } = useInstrumentModeStore();
   const { selectedInstrument } = useInstrumentModeStore();
 
@@ -177,13 +177,13 @@ function DrumTool({ bpm, isPlaying }: { bpm: number; isPlaying: boolean }) {
     setTimeMeasure(noteValue === 4 ? "16n" : "8n");
   }, [beatsPerMeasure, noteValue]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     //when subdivision changes, the selected buttons need to be adjusted accordingly, same applies for the ref/playback
     correctButtonSelectionSub(
       Number(selectedSubdivision.value.replace("n", "")),
     );
     correctRefSubdivision(Number(selectedSubdivision.value.replace("n", "")));
-  }, [selectedSubdivision.value]);
+  }, [selectedSubdivision.value]);*/
 
   useEffect(() => {
     const queryParameters = new URLSearchParams(window.location.search);
@@ -248,12 +248,12 @@ function DrumTool({ bpm, isPlaying }: { bpm: number; isPlaying: boolean }) {
     // console.log("noteValueTemp", noteValueTemp);
     // console.log("subdivisionTemp", subdivisionTemp);
     setSelectedSubdivision(subdivisionLabelTemp);
-    NotationAPI.resize(
+    /*NotationAPI.resize(
       numberStepsTemp,
       beatsPerMeasureTemp,
       subdivisionTemp + "",
     );
-
+*/
     let hihatStepsCopy = new Array(numberStepsTemp).fill(false);
     let hTomStepsCopy = new Array(numberStepsTemp).fill(false);
     let snareStepsCopy = new Array(numberStepsTemp).fill(false);
@@ -407,12 +407,12 @@ function DrumTool({ bpm, isPlaying }: { bpm: number; isPlaying: boolean }) {
     //make sure element is not null before rendering
     if (element) {
       requestAnimationFrame(() => {
-        ABCJS.renderAbc(element, notationString);
+        //ABCJS.renderAbc(element, notationString);
       });
     } else {
       console.error("The stave container element was not found.");
     }
-    console.log(createURL());
+  //  console.log(createURL());
   }, [notationString]);
 
   //for looping the pattern
@@ -597,7 +597,7 @@ function DrumTool({ bpm, isPlaying }: { bpm: number; isPlaying: boolean }) {
       const subdivision: number = Number(
         selectedSubdivision.value.replace("n", ""),
       );
-      let newNotationString = NotationAPI.draw(
+     /* let newNotationString = NotationAPI.draw(
         type,
         index,
         exactType,
@@ -622,7 +622,7 @@ function DrumTool({ bpm, isPlaying }: { bpm: number; isPlaying: boolean }) {
       setNotationString(newNotationString);
     },
     [NUM_STEPS, selectedSubdivision.value, beatsPerMeasure],
-  );
+  );*/
   function stepClick(
     ref: RefObject<string[]>,
     buttonClick: boolean,
@@ -669,6 +669,7 @@ function DrumTool({ bpm, isPlaying }: { bpm: number; isPlaying: boolean }) {
     }
     return [false, exactType];
   }
+  //TODO: converter function from my array to GSURL
   function createURL(): string {
     return CreateURL.createURL(
       beatsPerMeasure,
@@ -866,4 +867,4 @@ function DrumTool({ bpm, isPlaying }: { bpm: number; isPlaying: boolean }) {
   );
 }
 
-export default DrumTool;
+},export default DrumTool;

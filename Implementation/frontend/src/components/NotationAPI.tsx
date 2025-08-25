@@ -25,6 +25,7 @@ let instrumentArrays: string[][] = [
   stringArrayLTom,
   stringArrayKick,
 ];
+
 export function draw(
   instrumentType: InstrumentTypeEnum,
   index: number,
